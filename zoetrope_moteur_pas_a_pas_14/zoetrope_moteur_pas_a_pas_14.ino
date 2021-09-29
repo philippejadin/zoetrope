@@ -19,11 +19,11 @@ unsigned long flash_duration_min = 1;
 unsigned long flash_duration_max = 5000;
 
 
-int steps = 200; // Nombre de pas du stepper pour un tour
-int frames = 10; // nombre d'images dans l'animation
+unsigned long steps = 200; // Nombre de pas du stepper pour un tour
+unsigned long frames = 10; // nombre d'images dans l'animation
 
 unsigned long frame_duration = 80000; // en microsecondes
-unsigned long frame_duration_min = 40000;
+unsigned long frame_duration_min = 60000;
 unsigned long frame_duration_max = 350000;
 
 
@@ -81,8 +81,8 @@ void loop()
   //Serial.println(micros());
 
   // set motor speed from potentiometer
-  val = analogRead(frame_duration_potentiometer_pin);
-  int frame_duration_potentiometer = map(val, 0, 1024, 0, 1024);
+  long frame_duration_potentiometer = analogRead(frame_duration_potentiometer_pin);
+  //int frame_duration_potentiometer = map(val, 0, 1024, 0, 1024);
 
 
   if (frame_duration_potentiometer < 512)
@@ -105,12 +105,16 @@ void loop()
 
   val = analogRead(flash_duration_pot_pin);
   flash_duration = map(val, 1024, 0, flash_duration_min, flash_duration_max);
-  flash_duration = constrain(flash_duration, flash_duration_min, flash_duration_max);
+  //flash_duration = constrain(flash_duration, flash_duration_min, flash_duration_max);
 
 
 
   long step_duration = frame_duration * frames / steps / 2;
 
+  //Serial.println(step_duration);
+
+
+  //delay(100);
 
   // si ça fait suffisement longtemps qu'on a pas avancé d'un pas
   if (micros() > last_step_on + step_duration) {
