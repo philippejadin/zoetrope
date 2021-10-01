@@ -1,6 +1,7 @@
 /*
-  Version du 30 aout 2013
+  Version du 1er octobre 2021
 
+  Le flash s'allume et s'éteint dans la même boucle, plus précis pour le flash, moins précis pour les steps
   Essai de mettre un avant arrière pour le potentiomètre vitesse
   Désactive le moteur quand il ne tourne pas (évite de chauffer)
 
@@ -11,7 +12,7 @@
 /* Réglages du zoetrope en lui meme */
 unsigned long motor_interval = 2400; // en microsecondes +- minimum 1300
 
-unsigned long motor_interval_min = 1000;
+unsigned long motor_interval_min = 1300;
 unsigned long motor_interval_max = 8000;
 
 
@@ -19,8 +20,8 @@ unsigned long inactive_area = 400;
 
 
 unsigned long flash_duration = 1000; // motion blur : 1000 : nickel, 1500 plus lumineux, jusque 5500 (ultra blanc)
-unsigned long flash_duration_min = 10;
-unsigned long flash_duration_max = 5000;
+unsigned long flash_duration_min = 0;
+unsigned long flash_duration_max = 3000;
 
 
 int steps = 200; // Nombre de pas du stepper
@@ -66,14 +67,6 @@ void loop()
 
   micro = micros();
 
-  // extinction du flash :
-  if (micro > last_flash_on + flash_duration )
-  {
-    digitalWrite(ledPin, LOW);
-    last_flash_on = micro;
-  }
-
-
   // set motor speed from potentiometer
   val = analogRead(motor_interval_pot_pin);
   int motorspeed = map(val, 0, 1024, 0, 1024);
@@ -82,13 +75,13 @@ void loop()
   if (motorspeed < 512)
   {
     motor_interval = map(motorspeed, 512, 0, motor_interval_max, motor_interval_min);
-    digitalWrite(motordata, LOW);
+    digitalWrite(motordata, HIGH);
   }
   else
   {
     motor_interval = map(motorspeed, 512, 1024, motor_interval_max, motor_interval_min);
 
-    digitalWrite(motordata, HIGH);
+    digitalWrite(motordata, LOW);
   }
 
 
@@ -103,53 +96,34 @@ void loop()
   // en rotation :
   if (motor_interval < motor_interval_max - inactive_area)
   {
-
-    // extinction du flash :
-    if (micro > last_flash_on + flash_duration )
-    {
-      digitalWrite(ledPin, LOW);
-      last_flash_on = micro;
-    }
-
-    // enable stepper output
-    digitalWrite(motordisable, LOW);
-
-
-    digitalWrite(motorclock, HIGH);
-    delayMicroseconds(100);
-
-
-    // extinction du flash :
-    if (micro > last_flash_on + flash_duration )
-    {
-      digitalWrite(ledPin, LOW);
-      last_flash_on = micro;
-    }
-
-    digitalWrite(motorclock, LOW);
-    delayMicroseconds(motor_interval / 2);
-
-
-    // extinction du flash :
-    if (micro > last_flash_on + flash_duration )
-    {
-      digitalWrite(ledPin, LOW);
-      last_flash_on = micro;
-    }
-
-
-    compteur++;
-
+    // on allume le flash
     if (compteur == (steps / frames))
     {
-      // on allume le flash
+
       digitalWrite(ledPin, HIGH);
       last_flash_on = micro;
       delayMicroseconds(flash_duration);
       digitalWrite(ledPin, LOW);
-
       compteur = 0;
     }
+
+    // cette boucle stabilise parfaitement  l'anim mais en échange plus le flash est fort plus l'anim est lente :
+    /*
+      else {
+      delayMicroseconds(flash_duration);
+      }
+    */
+
+
+    // enable stepper output
+    digitalWrite(motordisable, LOW);
+    digitalWrite(motorclock, HIGH);
+    delayMicroseconds(100);
+    digitalWrite(motorclock, LOW);
+    delayMicroseconds(motor_interval / 2);
+
+    compteur++;
+
 
 
 
