@@ -300,17 +300,6 @@ Wire Wire Line
 	6300 1900 6300 2900
 Wire Wire Line
 	6300 2900 6900 2900
-$Comp
-L Connector:Screw_Terminal_01x04 J2
-U 1 1 615D42FD
-P 8000 3000
-F 0 "J2" H 8080 2992 50  0000 L CNN
-F 1 "Screw_Terminal_01x04" H 8080 2901 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-4_P5.08mm" H 8000 3000 50  0001 C CNN
-F 3 "~" H 8000 3000 50  0001 C CNN
-	1    8000 3000
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	6900 2600 6750 2600
 Wire Wire Line
@@ -495,33 +484,12 @@ Wire Wire Line
 Wire Wire Line
 	6350 6450 6050 6450
 Connection ~ 6050 6450
-$Comp
-L Connector:Screw_Terminal_01x06 J3
-U 1 1 615D7569
-P 7950 5150
-F 0 "J3" H 8030 5142 50  0000 L CNN
-F 1 "Screw_Terminal_01x06" H 8030 5051 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-6_P5.08mm" H 7950 5150 50  0001 C CNN
-F 3 "~" H 7950 5150 50  0001 C CNN
-	1    7950 5150
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4950 4350 7750 4350
 Wire Wire Line
 	7750 4350 7750 4950
 Wire Wire Line
 	5650 4850 7550 4850
-Wire Wire Line
-	7550 4850 7550 5150
-Wire Wire Line
-	7550 5150 7750 5150
-Wire Wire Line
-	6350 5300 7550 5300
-Wire Wire Line
-	7550 5300 7550 5350
-Wire Wire Line
-	7550 5350 7750 5350
 $Comp
 L power:+12V #PWR0103
 U 1 1 615E3797
@@ -533,18 +501,99 @@ F 3 "" H 6950 4650 50  0001 C CNN
 	1    6950 4650
 	1    0    0    -1  
 $EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J2
+U 1 1 615F6BFB
+P 8150 2900
+F 0 "J2" H 8230 2892 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 8230 2801 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 8150 2900 50  0001 C CNN
+F 3 "~" H 8150 2900 50  0001 C CNN
+	1    8150 2900
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J3
+U 1 1 615F745E
+P 8150 3100
+F 0 "J3" H 8230 3092 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 8230 3001 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 8150 3100 50  0001 C CNN
+F 3 "~" H 8150 3100 50  0001 C CNN
+	1    8150 3100
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	6950 4650 6950 5050
+	7800 2900 7950 2900
 Wire Wire Line
-	6950 5050 7750 5050
+	7800 3000 7950 3000
 Wire Wire Line
-	6950 5050 6950 5250
+	7800 3100 7950 3100
 Wire Wire Line
-	6950 5250 7750 5250
-Connection ~ 6950 5050
+	7800 3200 7950 3200
+$Comp
+L Connector:Screw_Terminal_01x02 J4
+U 1 1 6160B45E
+P 8200 5000
+F 0 "J4" H 8280 4992 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 8280 4901 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 8200 5000 50  0001 C CNN
+F 3 "~" H 8200 5000 50  0001 C CNN
+	1    8200 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J5
+U 1 1 6160BB18
+P 8200 5250
+F 0 "J5" H 8280 5242 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 8280 5151 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 8200 5250 50  0001 C CNN
+F 3 "~" H 8200 5250 50  0001 C CNN
+	1    8200 5250
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J6
+U 1 1 6160BE0B
+P 8200 5500
+F 0 "J6" H 8280 5492 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 8280 5401 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 8200 5500 50  0001 C CNN
+F 3 "~" H 8200 5500 50  0001 C CNN
+	1    8200 5500
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	6950 5250 6950 5450
+	7750 4950 8000 4950
 Wire Wire Line
-	6950 5450 7750 5450
-Connection ~ 6950 5250
+	8000 4950 8000 5000
+Wire Wire Line
+	7550 4850 7550 5250
+Wire Wire Line
+	7550 5250 8000 5250
+Wire Wire Line
+	6350 5300 7050 5300
+Wire Wire Line
+	7050 5300 7050 5500
+Wire Wire Line
+	7050 5500 8000 5500
+Wire Wire Line
+	6950 4650 6950 5100
+Wire Wire Line
+	6950 5100 7350 5100
+Wire Wire Line
+	7350 5100 7350 5350
+Wire Wire Line
+	7350 5350 7450 5350
+Connection ~ 7350 5100
+Wire Wire Line
+	7350 5100 8000 5100
+Wire Wire Line
+	7450 5350 7450 5600
+Wire Wire Line
+	7450 5600 8000 5600
+Connection ~ 7450 5350
+Wire Wire Line
+	7450 5350 8000 5350
 $EndSCHEMATC
