@@ -318,17 +318,6 @@ F 3 "http://www.infineon.com/dgdl/irlb8721pbf.pdf?fileId=5546d462533600a40153566
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:IRLB8721PBF Q3
-U 1 1 61593BB6
-P 6250 5500
-F 0 "Q3" H 6454 5546 50  0000 L CNN
-F 1 "IRLB8721PBF" H 6454 5455 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 6500 5425 50  0001 L CIN
-F 3 "http://www.infineon.com/dgdl/irlb8721pbf.pdf?fileId=5546d462533600a40153566056732591" H 6250 5500 50  0001 L CNN
-	1    6250 5500
-	1    0    0    -1  
-$EndComp
-$Comp
 L Transistor_FET:IRLB8721PBF Q2
 U 1 1 615946C9
 P 5550 5050
@@ -372,25 +361,8 @@ F 3 "~" H 5350 5900 50  0001 C CNN
 	1    5350 5900
 	1    0    0    -1  
 $EndComp
-$Comp
-L Device:R R6
-U 1 1 615A6C66
-P 6050 5950
-F 0 "R6" H 6120 5996 50  0000 L CNN
-F 1 "100K" H 6120 5905 50  0000 L CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5980 5950 50  0001 C CNN
-F 3 "~" H 6050 5950 50  0001 C CNN
-	1    6050 5950
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	4650 4550 4650 4650
-Wire Wire Line
-	6050 5500 6050 5800
-Wire Wire Line
-	6050 6100 6050 6450
-Wire Wire Line
-	6050 6450 5650 6450
 Wire Wire Line
 	5350 6450 5600 6450
 Connection ~ 5600 6450
@@ -419,17 +391,6 @@ F 3 "~" H 5100 5050 50  0001 C CNN
 	1    5100 5050
 	0    1    1    0   
 $EndComp
-$Comp
-L Device:R R5
-U 1 1 615B2A05
-P 5800 5500
-F 0 "R5" V 5593 5500 50  0000 C CNN
-F 1 "220" V 5684 5500 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5730 5500 50  0001 C CNN
-F 3 "~" H 5800 5500 50  0001 C CNN
-	1    5800 5500
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	5350 6050 5350 6450
 Wire Wire Line
@@ -439,9 +400,6 @@ Wire Wire Line
 	4650 4950 4650 6450
 Wire Wire Line
 	5250 5050 5350 5050
-Wire Wire Line
-	5950 5500 6050 5500
-Connection ~ 6050 5500
 Wire Wire Line
 	5350 5750 5350 5050
 Connection ~ 5350 5050
@@ -473,17 +431,11 @@ Wire Wire Line
 	4950 5050 4950 6450
 Wire Wire Line
 	5650 5250 5650 5500
-Connection ~ 5650 6450
 Wire Wire Line
 	5650 6450 5600 6450
 Connection ~ 5650 5500
 Wire Wire Line
 	5650 5500 5650 6450
-Wire Wire Line
-	6350 5700 6350 6450
-Wire Wire Line
-	6350 6450 6050 6450
-Connection ~ 6050 6450
 Wire Wire Line
 	4950 4350 7750 4350
 Wire Wire Line
@@ -504,33 +456,25 @@ $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J2
 U 1 1 615F6BFB
-P 8150 2900
-F 0 "J2" H 8230 2892 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 8230 2801 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 8150 2900 50  0001 C CNN
-F 3 "~" H 8150 2900 50  0001 C CNN
-	1    8150 2900
-	1    0    0    -1  
+P 8150 3000
+F 0 "J2" H 8230 2992 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 8230 2901 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 8150 3000 50  0001 C CNN
+F 3 "~" H 8150 3000 50  0001 C CNN
+	1    8150 3000
+	1    0    0    1   
 $EndComp
 $Comp
 L Connector:Screw_Terminal_01x02 J3
 U 1 1 615F745E
-P 8150 3100
-F 0 "J3" H 8230 3092 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 8230 3001 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 8150 3100 50  0001 C CNN
-F 3 "~" H 8150 3100 50  0001 C CNN
-	1    8150 3100
-	1    0    0    -1  
+P 8150 3200
+F 0 "J3" H 8230 3192 50  0000 L CNN
+F 1 "Screw_Terminal_01x02" H 8230 3101 50  0000 L CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 8150 3200 50  0001 C CNN
+F 3 "~" H 8150 3200 50  0001 C CNN
+	1    8150 3200
+	1    0    0    1   
 $EndComp
-Wire Wire Line
-	7800 2900 7950 2900
-Wire Wire Line
-	7800 3000 7950 3000
-Wire Wire Line
-	7800 3100 7950 3100
-Wire Wire Line
-	7800 3200 7950 3200
 $Comp
 L Connector:Screw_Terminal_01x02 J4
 U 1 1 6160B45E
@@ -553,17 +497,6 @@ F 3 "~" H 8200 5250 50  0001 C CNN
 	1    8200 5250
 	1    0    0    -1  
 $EndComp
-$Comp
-L Connector:Screw_Terminal_01x02 J6
-U 1 1 6160BE0B
-P 8200 5500
-F 0 "J6" H 8280 5492 50  0000 L CNN
-F 1 "Screw_Terminal_01x02" H 8280 5401 50  0000 L CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 8200 5500 50  0001 C CNN
-F 3 "~" H 8200 5500 50  0001 C CNN
-	1    8200 5500
-	1    0    0    -1  
-$EndComp
 Wire Wire Line
 	7750 4950 8000 4950
 Wire Wire Line
@@ -573,27 +506,189 @@ Wire Wire Line
 Wire Wire Line
 	7550 5250 8000 5250
 Wire Wire Line
-	6350 5300 7050 5300
-Wire Wire Line
-	7050 5300 7050 5500
-Wire Wire Line
-	7050 5500 8000 5500
-Wire Wire Line
 	6950 4650 6950 5100
 Wire Wire Line
 	6950 5100 7350 5100
 Wire Wire Line
 	7350 5100 7350 5350
-Wire Wire Line
-	7350 5350 7450 5350
 Connection ~ 7350 5100
 Wire Wire Line
 	7350 5100 8000 5100
+$Comp
+L Device:CP C1
+U 1 1 615BCE58
+P 8050 2300
+F 0 "C1" V 8305 2300 50  0000 C CNN
+F 1 "100uF" V 8214 2300 50  0000 C CNN
+F 2 "Capacitor_THT:CP_Radial_D6.3mm_P2.50mm" H 8088 2150 50  0001 C CNN
+F 3 "~" H 8050 2300 50  0001 C CNN
+	1    8050 2300
+	0    -1   -1   0   
+$EndComp
 Wire Wire Line
-	7450 5350 7450 5600
+	7900 2300 7550 2300
+Connection ~ 7550 2300
 Wire Wire Line
-	7450 5600 8000 5600
-Connection ~ 7450 5350
+	8200 2300 9350 2300
 Wire Wire Line
-	7450 5350 8000 5350
+	9350 2300 9350 4200
+Wire Wire Line
+	9350 4200 7500 4200
+Connection ~ 7500 4200
+$Comp
+L Jumper:SolderJumper_3_Bridged12 JP1
+U 1 1 615C72FF
+P 6000 3300
+F 0 "JP1" V 6046 3368 50  0000 L CNN
+F 1 "SolderJumper_3_Bridged12" V 5955 3368 50  0000 L CNN
+F 2 "Jumper:SolderJumper-3_P1.3mm_Bridged12_Pad1.0x1.5mm_NumberLabels" H 6000 3300 50  0001 C CNN
+F 3 "~" H 6000 3300 50  0001 C CNN
+	1    6000 3300
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Jumper:SolderJumper_3_Bridged12 JP2
+U 1 1 615C93FC
+P 6350 3400
+F 0 "JP2" V 6396 3468 50  0000 L CNN
+F 1 "SolderJumper_3_Bridged12" V 6305 3468 50  0000 L CNN
+F 2 "Jumper:SolderJumper-3_P1.3mm_Bridged12_Pad1.0x1.5mm_NumberLabels" H 6350 3400 50  0001 C CNN
+F 3 "~" H 6350 3400 50  0001 C CNN
+	1    6350 3400
+	0    -1   -1   0   
+$EndComp
+$Comp
+L Jumper:SolderJumper_3_Bridged12 JP3
+U 1 1 615CF697
+P 6550 3550
+F 0 "JP3" V 6596 3618 50  0000 L CNN
+F 1 "SolderJumper_3_Bridged12" V 6505 3618 50  0000 L CNN
+F 2 "Jumper:SolderJumper-3_P1.3mm_Bridged12_Pad1.0x1.5mm_NumberLabels" H 6550 3550 50  0001 C CNN
+F 3 "~" H 6550 3550 50  0001 C CNN
+	1    6550 3550
+	0    -1   -1   0   
+$EndComp
+Wire Wire Line
+	6750 3500 6900 3500
+Wire Wire Line
+	6500 3400 6900 3400
+Wire Wire Line
+	6000 3500 6000 4200
+Wire Wire Line
+	6000 4200 6350 4200
+Wire Wire Line
+	6350 3600 6350 4200
+Connection ~ 6350 4200
+$Comp
+L power:+5V #PWR0104
+U 1 1 615E6AAC
+P 6150 3100
+F 0 "#PWR0104" H 6150 2950 50  0001 C CNN
+F 1 "+5V" H 6165 3273 50  0000 C CNN
+F 2 "" H 6150 3100 50  0001 C CNN
+F 3 "" H 6150 3100 50  0001 C CNN
+	1    6150 3100
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 3100 6000 3100
+Wire Wire Line
+	6150 3100 6350 3100
+Wire Wire Line
+	6350 3100 6350 3200
+Connection ~ 6150 3100
+Wire Wire Line
+	6700 3550 6750 3550
+Wire Wire Line
+	6750 3550 6750 3500
+Wire Wire Line
+	6150 3300 6900 3300
+Wire Wire Line
+	6550 3350 6550 3200
+Wire Wire Line
+	6550 3200 6350 3200
+Connection ~ 6350 3200
+Wire Wire Line
+	6350 4200 6550 4200
+Wire Wire Line
+	6550 3750 6550 4200
+Connection ~ 6550 4200
+Wire Wire Line
+	6550 4200 7300 4200
+Wire Wire Line
+	7350 5350 8000 5350
+$Comp
+L Connector:Conn_01x06_Male J6
+U 1 1 6163D794
+P 2600 3700
+F 0 "J6" H 2708 4081 50  0000 C CNN
+F 1 "Conn_01x06_Male" H 2708 3990 50  0000 C CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 2600 3700 50  0001 C CNN
+F 3 "~" H 2600 3700 50  0001 C CNN
+	1    2600 3700
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x05_Male J7
+U 1 1 6163FB69
+P 4000 3800
+F 0 "J7" H 3972 3732 50  0000 R CNN
+F 1 "Conn_01x05_Male" H 3972 3823 50  0000 R CNN
+F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 4000 3800 50  0001 C CNN
+F 3 "~" H 4000 3800 50  0001 C CNN
+	1    4000 3800
+	-1   0    0    1   
+$EndComp
+$Comp
+L Mechanical:MountingHole H1
+U 1 1 6164DDB5
+P 10600 800
+F 0 "H1" H 10700 846 50  0000 L CNN
+F 1 "MountingHole" H 10700 755 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 10600 800 50  0001 C CNN
+F 3 "~" H 10600 800 50  0001 C CNN
+	1    10600 800 
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H2
+U 1 1 6164ECC8
+P 10600 1000
+F 0 "H2" H 10700 1046 50  0000 L CNN
+F 1 "MountingHole" H 10700 955 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 10600 1000 50  0001 C CNN
+F 3 "~" H 10600 1000 50  0001 C CNN
+	1    10600 1000
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H3
+U 1 1 6164EE49
+P 10600 1200
+F 0 "H3" H 10700 1246 50  0000 L CNN
+F 1 "MountingHole" H 10700 1155 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 10600 1200 50  0001 C CNN
+F 3 "~" H 10600 1200 50  0001 C CNN
+	1    10600 1200
+	1    0    0    -1  
+$EndComp
+$Comp
+L Mechanical:MountingHole H4
+U 1 1 6164EFED
+P 10600 1400
+F 0 "H4" H 10700 1446 50  0000 L CNN
+F 1 "MountingHole" H 10700 1355 50  0000 L CNN
+F 2 "MountingHole:MountingHole_3.2mm_M3" H 10600 1400 50  0001 C CNN
+F 3 "~" H 10600 1400 50  0001 C CNN
+	1    10600 1400
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	7800 2900 7950 2900
+Wire Wire Line
+	7800 3000 7950 3000
+Wire Wire Line
+	7800 3100 7950 3100
+Wire Wire Line
+	7800 3200 7950 3200
 $EndSCHEMATC
