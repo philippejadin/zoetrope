@@ -64,16 +64,16 @@ Wire Wire Line
 Wire Wire Line
 	1850 3200 2150 3200
 Wire Wire Line
-	2150 3200 2150 4550
+	2150 3200 2150 4300
 $Comp
 L power:GND #PWR04
 U 1 1 6157E58B
-P 7300 4250
-F 0 "#PWR04" H 7300 4000 50  0001 C CNN
-F 1 "GND" H 7305 4077 50  0000 C CNN
-F 2 "" H 7300 4250 50  0001 C CNN
-F 3 "" H 7300 4250 50  0001 C CNN
-	1    7300 4250
+P 7300 4200
+F 0 "#PWR04" H 7300 3950 50  0001 C CNN
+F 1 "GND" H 7305 4027 50  0000 C CNN
+F 2 "" H 7300 4200 50  0001 C CNN
+F 3 "" H 7300 4200 50  0001 C CNN
+	1    7300 4200
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -97,19 +97,6 @@ F 3 "" H 7550 1750 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L power:+12V #PWR03
-U 1 1 61580843
-P 3150 1450
-F 0 "#PWR03" H 3150 1300 50  0001 C CNN
-F 1 "+12V" H 3165 1623 50  0000 C CNN
-F 2 "" H 3150 1450 50  0001 C CNN
-F 3 "" H 3150 1450 50  0001 C CNN
-	1    3150 1450
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3150 2300 3200 2300
-$Comp
 L power:GND #PWR0101
 U 1 1 61585660
 P 3350 5150
@@ -118,19 +105,6 @@ F 1 "GND" H 3355 4977 50  0000 C CNN
 F 2 "" H 3350 5150 50  0001 C CNN
 F 3 "" H 3350 5150 50  0001 C CNN
 	1    3350 5150
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3150 1450 3150 2300
-$Comp
-L MCU_Module:Arduino_Nano_v3.x Nano1
-U 1 1 61571B58
-P 3300 3300
-F 0 "Nano1" H 3300 2211 50  0000 C CNN
-F 1 "Arduino_Nano_v3.x" H 3300 2120 50  0000 C CNN
-F 2 "Module:Arduino_Nano" H 3300 3300 50  0001 C CIN
-F 3 "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf" H 3300 3300 50  0001 C CNN
-	1    3300 3300
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -143,21 +117,6 @@ Wire Wire Line
 Connection ~ 3350 4300
 Wire Wire Line
 	3350 4300 3400 4300
-$Comp
-L power:+5V #PWR06
-U 1 1 6159371C
-P 3550 1700
-F 0 "#PWR06" H 3550 1550 50  0001 C CNN
-F 1 "+5V" H 3565 1873 50  0000 C CNN
-F 2 "" H 3550 1700 50  0001 C CNN
-F 3 "" H 3550 1700 50  0001 C CNN
-	1    3550 1700
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	3500 2300 3500 1700
-Wire Wire Line
-	3500 1700 3550 1700
 $Comp
 L power:+5V #PWR09
 U 1 1 61599403
@@ -383,12 +342,12 @@ $EndComp
 $Comp
 L Device:R R3
 U 1 1 615B25FE
-P 5100 5050
-F 0 "R3" V 4893 5050 50  0000 C CNN
-F 1 "220" V 4984 5050 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5030 5050 50  0001 C CNN
-F 3 "~" H 5100 5050 50  0001 C CNN
-	1    5100 5050
+P 5200 5050
+F 0 "R3" V 4993 5050 50  0000 C CNN
+F 1 "220" V 5084 5050 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5130 5050 50  0001 C CNN
+F 3 "~" H 5200 5050 50  0001 C CNN
+	1    5200 5050
 	0    1    1    0   
 $EndComp
 Wire Wire Line
@@ -399,43 +358,15 @@ Connection ~ 4650 4550
 Wire Wire Line
 	4650 4950 4650 6450
 Wire Wire Line
-	5250 5050 5350 5050
-Wire Wire Line
 	5350 5750 5350 5050
 Connection ~ 5350 5050
 Wire Wire Line
-	4200 4550 2700 4550
-Wire Wire Line
-	2700 4550 2700 3200
-Wire Wire Line
-	2700 3200 2800 3200
-Wire Wire Line
-	4950 5050 2600 5050
-Wire Wire Line
-	2600 5050 2600 3300
-Wire Wire Line
 	2600 3300 2800 3300
-Wire Wire Line
-	5650 5500 2500 5500
-Wire Wire Line
-	2500 5500 2500 3400
-Wire Wire Line
-	2500 3400 2800 3400
-Wire Wire Line
-	4950 4750 4950 5050
 Connection ~ 4950 6450
 Wire Wire Line
 	4950 6450 5350 6450
-Connection ~ 4950 5050
-Wire Wire Line
-	4950 5050 4950 6450
-Wire Wire Line
-	5650 5250 5650 5500
 Wire Wire Line
 	5650 6450 5600 6450
-Connection ~ 5650 5500
-Wire Wire Line
-	5650 5500 5650 6450
 Wire Wire Line
 	4950 4350 7750 4350
 Wire Wire Line
@@ -618,28 +549,6 @@ Wire Wire Line
 Wire Wire Line
 	7350 5350 8000 5350
 $Comp
-L Connector:Conn_01x06_Male J6
-U 1 1 6163D794
-P 2600 3700
-F 0 "J6" H 2708 4081 50  0000 C CNN
-F 1 "Conn_01x06_Male" H 2708 3990 50  0000 C CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical" H 2600 3700 50  0001 C CNN
-F 3 "~" H 2600 3700 50  0001 C CNN
-	1    2600 3700
-	1    0    0    -1  
-$EndComp
-$Comp
-L Connector:Conn_01x05_Male J7
-U 1 1 6163FB69
-P 4000 3800
-F 0 "J7" H 3972 3732 50  0000 R CNN
-F 1 "Conn_01x05_Male" H 3972 3823 50  0000 R CNN
-F 2 "Connector_PinHeader_2.54mm:PinHeader_1x05_P2.54mm_Vertical" H 4000 3800 50  0001 C CNN
-F 3 "~" H 4000 3800 50  0001 C CNN
-	1    4000 3800
-	-1   0    0    1   
-$EndComp
-$Comp
 L Mechanical:MountingHole H1
 U 1 1 6164DDB5
 P 10600 800
@@ -691,4 +600,204 @@ Wire Wire Line
 	7800 3100 7950 3100
 Wire Wire Line
 	7800 3200 7950 3200
+$Comp
+L Regulator_Linear:LM7805_TO220 U1
+U 1 1 615E50B0
+P 1500 4000
+F 0 "U1" H 1500 4242 50  0000 C CNN
+F 1 "LM7805_TO220" H 1500 4151 50  0000 C CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 1500 4225 50  0001 C CIN
+F 3 "https://www.onsemi.cn/PowerSolutions/document/MC7800-D.PDF" H 1500 3950 50  0001 C CNN
+	1    1500 4000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+12V #PWR0105
+U 1 1 615F4EE2
+P 1000 3650
+F 0 "#PWR0105" H 1000 3500 50  0001 C CNN
+F 1 "+12V" H 1015 3823 50  0000 C CNN
+F 2 "" H 1000 3650 50  0001 C CNN
+F 3 "" H 1000 3650 50  0001 C CNN
+	1    1000 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1000 3650 1000 4000
+Wire Wire Line
+	1000 4000 1200 4000
+Wire Wire Line
+	1500 4300 2150 4300
+Connection ~ 2150 4300
+Wire Wire Line
+	2150 4300 2150 4550
+$Comp
+L MCU_Module:Arduino_Nano_v3.x Nano1
+U 1 1 61571B58
+P 3300 3300
+F 0 "Nano1" H 3300 2211 50  0000 C CNN
+F 1 "Arduino_Nano_v3.x" H 3300 2120 50  0000 C CNN
+F 2 "Module:Arduino_Nano" H 3300 3300 50  0001 C CIN
+F 3 "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf" H 3300 3300 50  0001 C CNN
+	1    3300 3300
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0106
+U 1 1 616122A8
+P 1900 3650
+F 0 "#PWR0106" H 1900 3500 50  0001 C CNN
+F 1 "+5V" H 1915 3823 50  0000 C CNN
+F 2 "" H 1900 3650 50  0001 C CNN
+F 3 "" H 1900 3650 50  0001 C CNN
+	1    1900 3650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	1900 3650 1900 4000
+Wire Wire Line
+	1900 4000 1800 4000
+$Comp
+L power:+5V #PWR0107
+U 1 1 61619272
+P 3500 1650
+F 0 "#PWR0107" H 3500 1500 50  0001 C CNN
+F 1 "+5V" H 3515 1823 50  0000 C CNN
+F 2 "" H 3500 1650 50  0001 C CNN
+F 3 "" H 3500 1650 50  0001 C CNN
+	1    3500 1650
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	3500 1650 3500 2300
+Wire Wire Line
+	2600 3300 2600 5050
+Wire Wire Line
+	5650 5250 5650 6450
+Wire Wire Line
+	2800 3200 2500 3200
+Wire Wire Line
+	2500 3200 2500 4550
+Wire Wire Line
+	2500 4550 4200 4550
+$Comp
+L power:+5V #PWR010
+U 1 1 616CDADD
+P 3050 6050
+F 0 "#PWR010" H 3050 5900 50  0001 C CNN
+F 1 "+5V" H 3065 6223 50  0000 C CNN
+F 2 "" H 3050 6050 50  0001 C CNN
+F 3 "" H 3050 6050 50  0001 C CNN
+	1    3050 6050
+	-1   0    0    1   
+$EndComp
+$Comp
+L power:GND #PWR011
+U 1 1 616D2F37
+P 2850 6300
+F 0 "#PWR011" H 2850 6050 50  0001 C CNN
+F 1 "GND" H 2855 6127 50  0000 C CNN
+F 2 "" H 2850 6300 50  0001 C CNN
+F 3 "" H 2850 6300 50  0001 C CNN
+	1    2850 6300
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector_Generic:Conn_02x05_Top_Bottom J6
+U 1 1 616176B4
+P 2550 5800
+F 0 "J6" H 2600 6217 50  0000 C CNN
+F 1 "Conn_02x05_Top_Bottom" H 2600 6126 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical" H 2550 5800 50  0001 C CNN
+F 3 "~" H 2550 5800 50  0001 C CNN
+	1    2550 5800
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	2850 6300 2850 6000
+Wire Wire Line
+	2800 3400 2450 3400
+Wire Wire Line
+	2450 3400 2450 5400
+Wire Wire Line
+	2450 5400 2350 5400
+Wire Wire Line
+	2350 5400 2350 5600
+Wire Wire Line
+	2800 3500 2800 3550
+Wire Wire Line
+	2800 3550 2400 3550
+Wire Wire Line
+	2400 3550 2400 5350
+Wire Wire Line
+	2400 5350 2250 5350
+Wire Wire Line
+	2250 5350 2250 5700
+Wire Wire Line
+	2250 5700 2350 5700
+Wire Wire Line
+	2800 3600 2350 3600
+Wire Wire Line
+	2350 3600 2350 5250
+Wire Wire Line
+	2350 5250 2100 5250
+Wire Wire Line
+	2100 5250 2100 5800
+Wire Wire Line
+	2100 5800 2350 5800
+Wire Wire Line
+	2800 3700 2300 3700
+Wire Wire Line
+	2300 3700 2300 5150
+Wire Wire Line
+	2300 5150 2000 5150
+Wire Wire Line
+	2000 5150 2000 5900
+Wire Wire Line
+	2000 5900 2350 5900
+NoConn ~ 2800 2800
+NoConn ~ 2800 2700
+NoConn ~ 3800 3100
+NoConn ~ 3800 2800
+NoConn ~ 3800 2700
+NoConn ~ 3400 2300
+NoConn ~ 3200 2300
+NoConn ~ 2800 4000
+NoConn ~ 2800 3900
+NoConn ~ 2800 3800
+NoConn ~ 3800 4000
+Wire Wire Line
+	3050 6050 3050 5900
+Wire Wire Line
+	3050 5900 2850 5900
+Wire Wire Line
+	2350 6000 2350 6600
+Wire Wire Line
+	2350 6600 3950 6600
+Wire Wire Line
+	3950 6600 3950 3600
+Wire Wire Line
+	3950 3600 3800 3600
+Wire Wire Line
+	3800 3700 4000 3700
+Wire Wire Line
+	4000 3700 4000 5600
+Wire Wire Line
+	4000 5600 2850 5600
+Wire Wire Line
+	3800 3800 4050 3800
+Wire Wire Line
+	4050 3800 4050 5700
+Wire Wire Line
+	4050 5700 2850 5700
+Wire Wire Line
+	3800 3900 4100 3900
+Wire Wire Line
+	4100 3900 4100 5800
+Wire Wire Line
+	4100 5800 2850 5800
+Wire Wire Line
+	4950 4750 4950 6450
+Wire Wire Line
+	2600 5050 5050 5050
 $EndSCHEMATC
