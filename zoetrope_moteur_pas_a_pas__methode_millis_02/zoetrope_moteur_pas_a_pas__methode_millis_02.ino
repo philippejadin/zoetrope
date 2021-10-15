@@ -15,7 +15,7 @@ int enable_debug = false;
 int motor_direction = 1;
 
 
-int inactive_area = 100;
+int inactive_area = 50;
 
 
 
@@ -97,8 +97,10 @@ void loop()
   if (motor_on)
   {
 
+    micro = micros();
+
     // si ça fait suffisement longtemps qu'on a pas avancé d'un pas
-    if (micros() >= last_step_on) {
+    if (micro >= last_step_on) {
       if (step_on) {
         step_on = false;
         last_step_on += step_interval;
@@ -119,7 +121,7 @@ void loop()
 
     // si ça fait suffisement longtemps que le flash est éteint et qu'il est effectivement éteint
     // un fash à chaque frame
-    if (micros() >= next_flash + frame_duration) {
+    if (micro >= next_flash + frame_duration) {
       if (!flash_on) {
         flash_on = true;
         digitalWrite(ledPin, HIGH);
@@ -131,7 +133,7 @@ void loop()
 
     // si ça fait suffisement longtemps que le flash est allumé et qu'il est allumé effectivement, on éteint
 
-    if (micros() >= next_flash + flash_duration) {
+    if (micro >= next_flash + flash_duration) {
       if (flash_on) {
         flash_on = false;
         digitalWrite(ledPin, LOW);
@@ -163,20 +165,11 @@ void readPotentiometers()
     potentiometer_next = micros() + potentiometer_interval;
 
     // set motor speed from potentiometer
+    frame_duration_potentiometer = analogRead(frame_duration_potentiometer_pin) + analogRead(frame_duration_potentiometer_pin);
+    frame_duration_potentiometer = frame_duration_potentiometer / 2 ;
+    frame_duration_potentiometer = constrain(frame_duration_potentiometer, 0, 900);
 
-    frame_duration_potentiometer = 0;
-    for (int i = 0; i < 10; i++)
-    {
-      frame_duration_potentiometer += analogRead(frame_duration_potentiometer_pin);
-    }
-
-    frame_duration_potentiometer = frame_duration_potentiometer / 10;
-
-    constrain(frame_duration_potentiometer, 0, 1024);
-
-    //Serial.println(frame_duration_potentiometer);
-
-
+   
     if (frame_duration_potentiometer < 512 - inactive_area)
     {
       frame_duration = map(frame_duration_potentiometer, 512 - inactive_area, 0, frame_duration_max, frame_duration_min);
@@ -187,7 +180,7 @@ void readPotentiometers()
     }
     else if (frame_duration_potentiometer > 512 + inactive_area)
     {
-      frame_duration = map(frame_duration_potentiometer, 512 + inactive_area, 1024, frame_duration_max, frame_duration_min);
+      frame_duration = map(frame_duration_potentiometer, 512 + inactive_area, 900, frame_duration_max, frame_duration_min);
       motor_direction = -1;
       digitalWrite(motor_direction_pin, LOW);
       digitalWrite(motor_disable_pin, LOW);
@@ -206,7 +199,7 @@ void readPotentiometers()
     constrain(val, 0, 1024);
     flash_duration = map(val, 1024, 0, flash_duration_min, flash_duration_max);
 
-    flash_duration = 500;
+    flash_duration = 1000;
 
 
 

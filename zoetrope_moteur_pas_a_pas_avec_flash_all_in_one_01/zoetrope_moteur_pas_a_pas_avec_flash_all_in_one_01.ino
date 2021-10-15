@@ -24,7 +24,7 @@ unsigned long flash_duration_min = 0;
 unsigned long flash_duration_max = 3000;
 
 
-int steps = 200; // Nombre de pas du stepper
+int steps = 400; // Nombre de pas du stepper
 int frames = 16; // nombre d'images dans l'animation
 unsigned long micro;
 
