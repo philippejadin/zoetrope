@@ -25,10 +25,10 @@ unsigned long frame_duration_max = 100000;
 
 
 unsigned long flash_duration = 1000; // motion blur : 1000 : nickel, 1500 plus lumineux, jusque 5500 (ultra blanc)
-unsigned long flash_duration_min = 800;
+unsigned long flash_duration_min = 100;
 unsigned long flash_duration_max = 5000;
 
-unsigned long potentiometer_interval = 100000; // toutes les 50 msecs = 20 x par seconde
+unsigned long potentiometer_interval = 50000; // toutes les 50 msecs = 20 x par seconde
 unsigned long potentiometer_next = 0;
 
 unsigned long steps = 400; // Nombre de pas du stepper pour un tour
@@ -148,9 +148,9 @@ void loop()
   else // mode standby
   {
     digitalWrite(ledPin, HIGH);
-    delay(1);
+    delayMicroseconds(flash_duration);
     digitalWrite(ledPin, LOW);
-    delay(5);
+    delayMicroseconds(10000);
 
   }
 
@@ -165,12 +165,11 @@ void readPotentiometers()
     potentiometer_next = micros() + potentiometer_interval;
 
     // set motor speed from potentiometer
-    frame_duration_potentiometer = analogRead(frame_duration_potentiometer_pin) + analogRead(frame_duration_potentiometer_pin);
-    frame_duration_potentiometer = frame_duration_potentiometer / 2 ;
+    frame_duration_potentiometer = analogRead(frame_duration_potentiometer_pin);
     frame_duration_potentiometer = constrain(frame_duration_potentiometer, 0, 900);
 
    
-    if (frame_duration_potentiometer < 512 - inactive_area)
+    if (frame_duration_potentiometer < 512 - inactive_area - 50)
     {
       frame_duration = map(frame_duration_potentiometer, 512 - inactive_area, 0, frame_duration_max, frame_duration_min);
       motor_direction = 1;
@@ -178,7 +177,7 @@ void readPotentiometers()
       digitalWrite(motor_disable_pin, LOW);
       motor_on = true;
     }
-    else if (frame_duration_potentiometer > 512 + inactive_area)
+    else if (frame_duration_potentiometer > 512 + inactive_area + 50)
     {
       frame_duration = map(frame_duration_potentiometer, 512 + inactive_area, 900, frame_duration_max, frame_duration_min);
       motor_direction = -1;
@@ -196,10 +195,10 @@ void readPotentiometers()
     // set flash speed from potentiometer
 
     val = analogRead(flash_duration_pot_pin);
-    constrain(val, 0, 1024);
-    flash_duration = map(val, 1024, 0, flash_duration_min, flash_duration_max);
+    val = constrain(val, 0, 900);
+    flash_duration = map(val, 900, 0, flash_duration_min, flash_duration_max);
 
-    flash_duration = 1000;
+    //flash_duration = 1000;
 
 
 
