@@ -68,7 +68,7 @@ void setup() {
   pinMode(ledPin, OUTPUT);
   pinMode(motordisable, OUTPUT);
 
-  digitalWrite(motordisable, LOW);
+  digitalWrite(motordisable, HIGH);
 
   Serial.begin(9600);
 
@@ -81,16 +81,19 @@ void loop()
 
 
   digitalWrite(ledPin, LOW);
-  for (int i = 0; i < 20; i++)
-  {
+  delayMicroseconds(10000);
+  /*
+    for (int i = 0; i < 20; i++)
+    {
     digitalWrite(motorclock, LOW);
     delayMicroseconds(700);
     digitalWrite(motorclock, HIGH);
     delayMicroseconds(700);
-  }
+    }
+  */
 
   digitalWrite(ledPin, HIGH);
-  delayMicroseconds(1000);
+  delayMicroseconds(10000);
 
 
 
