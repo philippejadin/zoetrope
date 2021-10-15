@@ -128,9 +128,11 @@ void loop()
       digitalWrite(flash_pin, HIGH);
     }
 
-    if (flash == flash_duration)
+    if (flash >= flash_duration)
     {
+      flash = 0;
       digitalWrite(flash_pin, LOW);
+      
     }
 
 
