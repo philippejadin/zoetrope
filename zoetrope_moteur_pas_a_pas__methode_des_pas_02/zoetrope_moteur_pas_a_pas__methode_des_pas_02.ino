@@ -14,11 +14,11 @@
 /* HARDWARE pins */
 
 int motor_clock_pin = 3;      // stepper motor clock
-int motor_direction_pin = 6;      // stepper motor direction
-int motor_disable_pin = 10;      // pin to disable the motor data
-int flash_pin = 8; // pin pour le flash
-int step_duration_pin = 0; // potentiometer pin to set motor interval
-int flash_duration_pin = 1; // potentiometer pint to set flash duration
+int motor_direction_pin = 2;      // stepper motor direction
+int motor_disable_pin = 4;      // pin to disable the motor data
+int flash_pin = 5; // pin pour le flash
+int step_duration_pin = A0; // potentiometer pin to set motor interval
+int flash_duration_pin = A1; // potentiometer pint to set flash duration
 
 
 
@@ -28,8 +28,8 @@ int flash_duration_pin = 1; // potentiometer pint to set flash duration
 int inactive_area = 100; // neutral zone of the potentiometer (the "off" position of the motor)
 
 unsigned long step_duration; // en microsecondes
-unsigned long step_duration_min = 200;
-unsigned long step_duration_max = 3000;
+unsigned long step_duration_min = 100;
+unsigned long step_duration_max = 4000;
 
 
 unsigned long flash_duration = 1; // en nombre de pas
@@ -113,7 +113,7 @@ void loop()
   flash_duration_pot.add(val);
   val = flash_duration_pot.get();
   
-  flash_duration = map(val, 0, 900, flash_duration_min, flash_duration_max);
+  flash_duration = map(val, 900, 0, flash_duration_min, flash_duration_max);
 
 
 
