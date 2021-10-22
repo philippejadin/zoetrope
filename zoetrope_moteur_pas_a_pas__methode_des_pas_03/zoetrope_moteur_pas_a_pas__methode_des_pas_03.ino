@@ -39,7 +39,7 @@ int steps = 400; // Nombre de pas du stepper pour un tour
 int frames = 16; // nombre d'images dans l'animation
 
 
-int frames_per_disc[] = {8, 10, 16, 20, 24, 32, 40, 64}; // frames per disc available to choose from third potentiometer
+int frames_per_disc[] = {10, 16, 20, 24, 32, 40, 64}; // frames per disc available to choose from third potentiometer
 
 
 int flash_duration = 1; // en nombre de pas
@@ -125,7 +125,7 @@ void loop()
     previous_step_duration = step_duration;
 
   }
-  
+
 
 
 
@@ -134,7 +134,7 @@ void loop()
   // set frames from frames potentiometer
 
   val = analogRead(frames_pin);
-  int index = map(val, 1023, 0, 0, 7);
+  int index = map(val, 1023, 0, 0, 6);
 
   frames =  frames_per_disc[index];
 
@@ -144,6 +144,11 @@ void loop()
 
   flash_duration_max = steps / frames / 2;
 
+  if (flash_duration_max < 1)
+  {
+    flash_duration_max = 1;
+  }
+
   //Serial.print("flash_duration_max : ");
   //Serial.println(flash_duration_max);
 
@@ -151,19 +156,25 @@ void loop()
   /********************* flash duration  *************************/
 
   val = analogRead(flash_duration_pin);
-  flash_duration = map(val, 1023, 0, 0, flash_duration_max);
+
+ 
+  
+  if (val > 1023 - inactive_area)
+  {
+    flash_duration = 0;
+  }
+  else
+  {
+    flash_duration = map(val, 1023 - inactive_area, 0, 1, flash_duration_max);
+  }
 
   //Serial.print("flash_duration : ");
   //Serial.println(flash_duration);
 
   if (motor_on)
   {
-    /*
-        Serial.print("calc : ");
-        Serial.println(steps / frames);
-    */
     // handle flash on
-    if (compteur == steps / frames)
+    if (compteur >= steps / frames)
     {
       flash = 0;
       compteur = 0;
