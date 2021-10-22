@@ -27,18 +27,18 @@ int flash_duration_pin = A1; // potentiometer pint to set flash duration
 
 int inactive_area = 100; // neutral zone of the potentiometer (the "off" position of the motor)
 
-unsigned long step_duration; // en microsecondes
-unsigned long step_duration_min = 100;
-unsigned long step_duration_max = 4000;
+int step_duration; // en microsecondes
+int step_duration_min = 10;
+int step_duration_max = 2000;
 
 
-unsigned long flash_duration = 1; // en nombre de pas
-unsigned long flash_duration_min = 0;
-unsigned long flash_duration_max = 10;
+int flash_duration = 1; // en nombre de pas
+int flash_duration_min = 0;
+int flash_duration_max = 20;
 
 
-unsigned long steps = 400; // Nombre de pas du stepper pour un tour
-unsigned long frames = 10; // nombre d'images dans l'animation
+int steps = 400; // Nombre de pas du stepper pour un tour
+int frames = 10; // nombre d'images dans l'animation
 
 
 
@@ -84,14 +84,14 @@ void loop()
 
   val = step_duration_pot.get();
 
-  if (val < 512 - inactive_area - 50)
+  if (val < 512 - inactive_area)
   {
     step_duration = map(val, 512 - inactive_area, 0, step_duration_max, step_duration_min);
     digitalWrite(motor_direction_pin, HIGH);
     digitalWrite(motor_disable_pin, LOW);
     motor_on = true;
   }
-  else if (val > 512 + inactive_area + 50)
+  else if (val > 512 + inactive_area)
   {
     step_duration = map(val, 512 + inactive_area, 900, step_duration_max, step_duration_min);
     digitalWrite(motor_direction_pin, LOW);
@@ -108,31 +108,38 @@ void loop()
   // set flash speed from potentiometer
 
   val = analogRead(flash_duration_pin);
-  val = constrain(val, 0, 900);
+  val = constrain(val, 0, 1023);
 
   flash_duration_pot.add(val);
   val = flash_duration_pot.get();
-  
-  flash_duration = map(val, 900, 0, flash_duration_min, flash_duration_max);
+
+  flash_duration = map(val, 1000, 0, flash_duration_min, flash_duration_max);
 
 
 
 
   if (motor_on)
   {
+/*
+    Serial.print("calc : ");  
+    Serial.println(steps / frames);
+    */
     // handle steps
     if (compteur == steps / frames)
     {
       flash = 0;
       compteur = 0;
       digitalWrite(flash_pin, HIGH);
+      //Serial.println("-------------flash on!-----------------");
     }
 
+
+    
     if (flash >= flash_duration)
     {
-      flash = 0;
       digitalWrite(flash_pin, LOW);
-      
+      //Serial.println("flash off!");
+
     }
 
 
@@ -142,6 +149,21 @@ void loop()
     digitalWrite(motor_clock_pin, HIGH);
     delayMicroseconds(step_duration);
     digitalWrite(motor_clock_pin, LOW);
+
+/*
+    Serial.print("compteur : ");
+    Serial.println(compteur);
+
+    Serial.print("flash : ");
+    Serial.println(flash);
+
+    Serial.print("flash duration: ");
+    Serial.println(flash_duration);
+    */
+
+    //delay(300);
+
+
   }
   else // mode standby
   {
