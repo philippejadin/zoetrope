@@ -26,16 +26,20 @@ int frames_pin = A2; // potentiometer pin to set number of frames per disc
 
 int inactive_area = 100; // neutral zone of the potentiometer (the "off" position of the motor)
 
-int step_duration = 400; // en microsecondes
+int step_duration = 0; // en microsecondes
 int step_duration_min = 0;
 int step_duration_max = 2000;
+
+int previous_step_duration = 0;
+
+int step_acceleration = 5; // maximum speed change in one loop itteration,  1 = very slow ramp up and down / 10+ = no visible acceleration control
 
 
 int steps = 400; // Nombre de pas du stepper pour un tour
 int frames = 16; // nombre d'images dans l'animation
 
 
-int frames_per_disc[] = {8, 10, 16, 20, 24, 32, 64}; // frames per disc available to choose from third potentiometer
+int frames_per_disc[] = {8, 10, 16, 20, 24, 32, 40, 64}; // frames per disc available to choose from third potentiometer
 
 
 int flash_duration = 1; // en nombre de pas
@@ -65,13 +69,17 @@ void setup() {
 
   digitalWrite(motor_direction_pin, HIGH);
 
+
+  previous_step_duration = step_duration_max;
+
 }
 
 void loop()
 {
   // read user input
-  // set motor speed from potentiometer
+  /********************* step duration *************************/
   val = analogRead(step_duration_pin);
+
 
 
   if (val < 512 - inactive_area)
@@ -83,7 +91,7 @@ void loop()
   }
   else if (val > 512 + inactive_area)
   {
-    step_duration = map(val, 512 + inactive_area, 1000, step_duration_max, step_duration_min);
+    step_duration = map(val, 512 + inactive_area, 1023, step_duration_max, step_duration_min);
     digitalWrite(motor_direction_pin, LOW);
     digitalWrite(motor_disable_pin, LOW);
     motor_on = true;
@@ -92,13 +100,41 @@ void loop()
   {
     digitalWrite(motor_disable_pin, HIGH);
     motor_on = false;
+    previous_step_duration = step_duration_max;
+    step_duration = step_duration_max;
   }
 
+  // Serial.println(step_duration);
 
+
+  // smooth out values to liit acceleration :
+
+
+  if (abs(previous_step_duration - step_duration) > step_acceleration)
+  {
+    // Serial.println("too fast");
+    if (step_duration > previous_step_duration)
+    {
+      step_duration = previous_step_duration + step_acceleration;
+    }
+    if (step_duration < previous_step_duration)
+    {
+      step_duration = previous_step_duration - step_acceleration;
+    }
+
+    previous_step_duration = step_duration;
+
+  }
+  
+
+
+
+
+  /********************* frames per disc  *************************/
   // set frames from frames potentiometer
 
   val = analogRead(frames_pin);
-  int index = map(val, 1023, 0, 0, 6);
+  int index = map(val, 1023, 0, 0, 7);
 
   frames =  frames_per_disc[index];
 
@@ -112,12 +148,9 @@ void loop()
   //Serial.println(flash_duration_max);
 
 
-  // set flash speed from potentiometer
+  /********************* flash duration  *************************/
 
   val = analogRead(flash_duration_pin);
-
-
-
   flash_duration = map(val, 1023, 0, 0, flash_duration_max);
 
   //Serial.print("flash_duration : ");
