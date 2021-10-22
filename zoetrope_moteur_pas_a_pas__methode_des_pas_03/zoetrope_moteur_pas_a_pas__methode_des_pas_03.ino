@@ -32,7 +32,7 @@ int step_duration_max = 2000;
 
 int previous_step_duration = 0;
 
-int step_acceleration = 5; // maximum speed change in one loop itteration,  1 = very slow ramp up and down / 10+ = no visible acceleration control
+int step_acceleration = 2; // maximum speed change in one loop itteration,  1 = very slow ramp up and down / 10+ = no visible acceleration control
 
 
 int steps = 400; // Nombre de pas du stepper pour un tour
