@@ -277,17 +277,6 @@ F 3 "http://www.infineon.com/dgdl/irlb8721pbf.pdf?fileId=5546d462533600a40153566
 	1    0    0    -1  
 $EndComp
 $Comp
-L Transistor_FET:IRLB8721PBF Q2
-U 1 1 615946C9
-P 5550 5050
-F 0 "Q2" H 5754 5096 50  0000 L CNN
-F 1 "IRLB8721PBF" H 5754 5005 50  0000 L CNN
-F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5800 4975 50  0001 L CIN
-F 3 "http://www.infineon.com/dgdl/irlb8721pbf.pdf?fileId=5546d462533600a40153566056732591" H 5550 5050 50  0001 L CNN
-	1    5550 5050
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:GND #PWR0102
 U 1 1 615A3AC5
 P 5600 6450
@@ -339,17 +328,6 @@ F 3 "~" H 4350 4550 50  0001 C CNN
 	1    4350 4550
 	0    1    1    0   
 $EndComp
-$Comp
-L Device:R R3
-U 1 1 615B25FE
-P 5200 5050
-F 0 "R3" V 4993 5050 50  0000 C CNN
-F 1 "220" V 5084 5050 50  0000 C CNN
-F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5130 5050 50  0001 C CNN
-F 3 "~" H 5200 5050 50  0001 C CNN
-	1    5200 5050
-	0    1    1    0   
-$EndComp
 Wire Wire Line
 	5350 6050 5350 6450
 Wire Wire Line
@@ -357,11 +335,6 @@ Wire Wire Line
 Connection ~ 4650 4550
 Wire Wire Line
 	4650 4950 4650 6450
-Wire Wire Line
-	5350 5750 5350 5050
-Connection ~ 5350 5050
-Wire Wire Line
-	2600 3300 2800 3300
 Connection ~ 4950 6450
 Wire Wire Line
 	4950 6450 5350 6450
@@ -671,8 +644,6 @@ $EndComp
 Wire Wire Line
 	3500 1650 3500 2300
 Wire Wire Line
-	2600 3300 2600 5050
-Wire Wire Line
 	5650 5250 5650 6450
 Wire Wire Line
 	2800 3200 2500 3200
@@ -798,6 +769,37 @@ Wire Wire Line
 	4100 5800 2850 5800
 Wire Wire Line
 	4950 4750 4950 6450
+$Comp
+L Transistor_FET:IRLB8721PBF Q2
+U 1 1 615946C9
+P 5550 5050
+F 0 "Q2" H 5754 5096 50  0000 L CNN
+F 1 "IRLB8721PBF" H 5754 5005 50  0000 L CNN
+F 2 "Package_TO_SOT_THT:TO-220-3_Vertical" H 5800 4975 50  0001 L CIN
+F 3 "http://www.infineon.com/dgdl/irlb8721pbf.pdf?fileId=5546d462533600a40153566056732591" H 5550 5050 50  0001 L CNN
+	1    5550 5050
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	2600 5050 5050 5050
+	5350 5750 5350 5050
+Wire Wire Line
+	2700 5050 2700 3300
+Wire Wire Line
+	2700 3300 2800 3300
+Wire Wire Line
+	5300 5050 5350 5050
+Connection ~ 5350 5050
+$Comp
+L Device:R R3
+U 1 1 616F2884
+P 5150 5050
+F 0 "R3" V 4943 5050 50  0000 C CNN
+F 1 "220" V 5034 5050 50  0000 C CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 5080 5050 50  0001 C CNN
+F 3 "~" H 5150 5050 50  0001 C CNN
+	1    5150 5050
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	2700 5050 5000 5050
 $EndSCHEMATC
