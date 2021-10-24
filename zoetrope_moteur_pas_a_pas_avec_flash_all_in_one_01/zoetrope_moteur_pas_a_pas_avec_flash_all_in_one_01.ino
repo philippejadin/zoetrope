@@ -12,7 +12,7 @@
 /* Réglages du zoetrope en lui meme */
 unsigned long motor_interval = 2400; // en microsecondes +- minimum 1300
 
-unsigned long motor_interval_min = 1300;
+unsigned long motor_interval_min = 800;
 unsigned long motor_interval_max = 8000;
 
 
@@ -24,9 +24,12 @@ unsigned long flash_duration_min = 0;
 unsigned long flash_duration_max = 3000;
 
 
-int steps = 200; // Nombre de pas du stepper
-int frames = 10; // nombre d'images dans l'animation
+int steps = 400; // Nombre de pas du stepper
+int frames = 16; // nombre d'images dans l'animation
 unsigned long micro;
+
+int motorspeed = 512;
+int previous_motorspeed = 512;
 
 
 /* HARDWARE pins */
@@ -67,30 +70,48 @@ void loop()
 
   micro = micros();
 
-  // set motor speed from potentiometer
-  val = analogRead(motor_interval_pot_pin);
-  int motorspeed = map(val, 0, 1024, 0, 1024);
 
 
-  if (motorspeed < 512)
-  {
-    motor_interval = map(motorspeed, 512, 0, motor_interval_max, motor_interval_min);
-    digitalWrite(motordata, HIGH);
-  }
-  else
-  {
-    motor_interval = map(motorspeed, 512, 1024, motor_interval_max, motor_interval_min);
+    // set motor speed from potentiometer
+    val = analogRead(motor_interval_pot_pin);
+    motorspeed = map(val, 0, 1024, 0, 1024);
 
-    digitalWrite(motordata, LOW);
-  }
+    if (previous_motorspeed > motorspeed)
+    {
+      motorspeed ++;
+      previous_motorspeed = motorspeed;
+    }
+
+    if (previous_motorspeed < motorspeed)
+    {
+      motorspeed --;
+      previous_motorspeed = motorspeed;
+    }
+
+
+    if (motorspeed < 512)
+    {
+      motor_interval = map(motorspeed, 512, 0, motor_interval_max, motor_interval_min);
+      digitalWrite(motordata, HIGH);
+    }
+    else
+    {
+      motor_interval = map(motorspeed, 512, 1024, motor_interval_max, motor_interval_min);
+
+      digitalWrite(motordata, LOW);
+    }
+
+  
 
 
 
 
   // set flash speed from potentiometer
   val = analogRead(flash_duration_pot_pin);
+  //val = 500;
   flash_duration = map(val, 1024, 0, flash_duration_min, flash_duration_max);
 
+  flash_duration = 1000;
 
 
   // en rotation :
@@ -106,19 +127,19 @@ void loop()
       digitalWrite(ledPin, LOW);
       compteur = 0;
     }
-
+/*
     // cette boucle stabilise parfaitement  l'anim mais en échange plus le flash est fort plus l'anim est lente :
-    /*
+    
       else {
       delayMicroseconds(flash_duration);
       }
-    */
-
+    
+*/
 
     // enable stepper output
     digitalWrite(motordisable, LOW);
     digitalWrite(motorclock, HIGH);
-    delayMicroseconds(100);
+    delayMicroseconds(200);
     digitalWrite(motorclock, LOW);
     delayMicroseconds(motor_interval / 2);
 
