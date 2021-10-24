@@ -25,17 +25,6 @@ F 3 "https://www.pololu.com/product/2980/pictures" H 7400 2700 50  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L Connector:Barrel_Jack J1
-U 1 1 6157563F
-P 1550 3100
-F 0 "J1" H 1607 3425 50  0000 C CNN
-F 1 "Barrel_Jack" H 1607 3334 50  0000 C CNN
-F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 1600 3060 50  0001 C CNN
-F 3 "~" H 1600 3060 50  0001 C CNN
-	1    1550 3100
-	1    0    0    -1  
-$EndComp
-$Comp
 L power:+12V #PWR02
 U 1 1 61577B94
 P 2250 2300
@@ -57,12 +46,6 @@ F 3 "" H 2150 4550 50  0001 C CNN
 	1    2150 4550
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	1850 3000 2250 3000
-Wire Wire Line
-	2250 3000 2250 2300
-Wire Wire Line
-	1850 3200 2150 3200
 Wire Wire Line
 	2150 3200 2150 4300
 $Comp
@@ -255,8 +238,6 @@ Wire Wire Line
 	2450 3100 2450 1900
 Wire Wire Line
 	2450 1900 6300 1900
-Wire Wire Line
-	6300 1900 6300 2900
 Wire Wire Line
 	6300 2900 6900 2900
 Wire Wire Line
@@ -466,86 +447,6 @@ Wire Wire Line
 Wire Wire Line
 	9350 4200 7500 4200
 Connection ~ 7500 4200
-$Comp
-L Jumper:SolderJumper_3_Bridged12 JP1
-U 1 1 615C72FF
-P 6000 3300
-F 0 "JP1" V 6046 3368 50  0000 L CNN
-F 1 "SolderJumper_3_Bridged12" V 5955 3368 50  0000 L CNN
-F 2 "Jumper:SolderJumper-3_P1.3mm_Bridged12_Pad1.0x1.5mm_NumberLabels" H 6000 3300 50  0001 C CNN
-F 3 "~" H 6000 3300 50  0001 C CNN
-	1    6000 3300
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Jumper:SolderJumper_3_Bridged12 JP2
-U 1 1 615C93FC
-P 6350 3400
-F 0 "JP2" V 6396 3468 50  0000 L CNN
-F 1 "SolderJumper_3_Bridged12" V 6305 3468 50  0000 L CNN
-F 2 "Jumper:SolderJumper-3_P1.3mm_Bridged12_Pad1.0x1.5mm_NumberLabels" H 6350 3400 50  0001 C CNN
-F 3 "~" H 6350 3400 50  0001 C CNN
-	1    6350 3400
-	0    -1   -1   0   
-$EndComp
-$Comp
-L Jumper:SolderJumper_3_Bridged12 JP3
-U 1 1 615CF697
-P 6550 3550
-F 0 "JP3" V 6596 3618 50  0000 L CNN
-F 1 "SolderJumper_3_Bridged12" V 6505 3618 50  0000 L CNN
-F 2 "Jumper:SolderJumper-3_P1.3mm_Bridged12_Pad1.0x1.5mm_NumberLabels" H 6550 3550 50  0001 C CNN
-F 3 "~" H 6550 3550 50  0001 C CNN
-	1    6550 3550
-	0    -1   -1   0   
-$EndComp
-Wire Wire Line
-	6750 3500 6900 3500
-Wire Wire Line
-	6500 3400 6900 3400
-Wire Wire Line
-	6000 3500 6000 4200
-Wire Wire Line
-	6000 4200 6350 4200
-Wire Wire Line
-	6350 3600 6350 4200
-Connection ~ 6350 4200
-$Comp
-L power:+5V #PWR0104
-U 1 1 615E6AAC
-P 6150 3100
-F 0 "#PWR0104" H 6150 2950 50  0001 C CNN
-F 1 "+5V" H 6165 3273 50  0000 C CNN
-F 2 "" H 6150 3100 50  0001 C CNN
-F 3 "" H 6150 3100 50  0001 C CNN
-	1    6150 3100
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
-	6150 3100 6000 3100
-Wire Wire Line
-	6150 3100 6350 3100
-Wire Wire Line
-	6350 3100 6350 3200
-Connection ~ 6150 3100
-Wire Wire Line
-	6700 3550 6750 3550
-Wire Wire Line
-	6750 3550 6750 3500
-Wire Wire Line
-	6150 3300 6900 3300
-Wire Wire Line
-	6550 3350 6550 3200
-Wire Wire Line
-	6550 3200 6350 3200
-Connection ~ 6350 3200
-Wire Wire Line
-	6350 4200 6550 4200
-Wire Wire Line
-	6550 3750 6550 4200
-Connection ~ 6550 4200
-Wire Wire Line
-	6550 4200 7300 4200
 Wire Wire Line
 	7350 5350 8000 5350
 $Comp
@@ -762,9 +663,6 @@ NoConn ~ 3800 2800
 NoConn ~ 3800 2700
 NoConn ~ 3400 2300
 NoConn ~ 3200 2300
-NoConn ~ 2800 4000
-NoConn ~ 2800 3900
-NoConn ~ 2800 3800
 NoConn ~ 3800 4000
 Wire Wire Line
 	3050 6050 3050 5900
@@ -800,4 +698,89 @@ Wire Wire Line
 	4950 4750 4950 6450
 Wire Wire Line
 	2600 5050 5050 5050
+Wire Wire Line
+	1650 3200 1650 3150
+Wire Wire Line
+	1650 3200 2150 3200
+$Comp
+L Diode:1N4004 D1
+U 1 1 6175F83B
+P 1950 3050
+F 0 "D1" H 1950 2834 50  0000 C CNN
+F 1 "1N4004" H 1950 2925 50  0000 C CNN
+F 2 "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal" H 1950 2875 50  0001 C CNN
+F 3 "http://www.vishay.com/docs/88503/1n4001.pdf" H 1950 3050 50  0001 C CNN
+	1    1950 3050
+	-1   0    0    1   
+$EndComp
+$Comp
+L Connector:Screw_Terminal_01x02 J1
+U 1 1 6174A9AD
+P 1450 3150
+F 0 "J1" H 1368 2825 50  0000 C CNN
+F 1 "Screw_Terminal_01x02" H 1368 2916 50  0000 C CNN
+F 2 "TerminalBlock:TerminalBlock_bornier-2_P5.08mm" H 1450 3150 50  0001 C CNN
+F 3 "~" H 1450 3150 50  0001 C CNN
+	1    1450 3150
+	-1   0    0    1   
+$EndComp
+Wire Wire Line
+	1650 3050 1800 3050
+Wire Wire Line
+	2100 3050 2250 3050
+Wire Wire Line
+	2250 3050 2250 2300
+$Comp
+L Device:R R5
+U 1 1 6177F9D0
+P 6300 1500
+F 0 "R5" H 6370 1546 50  0000 L CNN
+F 1 "100K" H 6370 1455 50  0000 L CNN
+F 2 "Resistor_THT:R_Axial_DIN0207_L6.3mm_D2.5mm_P10.16mm_Horizontal" V 6230 1500 50  0001 C CNN
+F 3 "~" H 6300 1500 50  0001 C CNN
+	1    6300 1500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6300 1650 6300 1900
+Connection ~ 6300 1900
+Wire Wire Line
+	6300 1900 6300 2900
+$Comp
+L power:+5V #PWR03
+U 1 1 61787A07
+P 6300 1150
+F 0 "#PWR03" H 6300 1000 50  0001 C CNN
+F 1 "+5V" H 6315 1323 50  0000 C CNN
+F 2 "" H 6300 1150 50  0001 C CNN
+F 3 "" H 6300 1150 50  0001 C CNN
+	1    6300 1150
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6300 1150 6300 1350
+Text Label 6600 3300 2    50   ~ 0
+MS1
+Text Label 6600 3400 2    50   ~ 0
+MS2
+Text Label 6600 3500 2    50   ~ 0
+MS3
+Wire Wire Line
+	6600 3300 6900 3300
+Wire Wire Line
+	6600 3400 6900 3400
+Wire Wire Line
+	6600 3500 6900 3500
+Text Label 2750 3800 2    50   ~ 0
+MS1
+Text Label 2750 3900 2    50   ~ 0
+MS2
+Text Label 2750 4000 2    50   ~ 0
+MS3
+Wire Wire Line
+	2750 3800 2800 3800
+Wire Wire Line
+	2750 3900 2800 3900
+Wire Wire Line
+	2750 4000 2800 4000
 $EndSCHEMATC
