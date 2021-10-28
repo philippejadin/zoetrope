@@ -62,6 +62,7 @@ void setup() {
   pinMode(motor_direction_pin, OUTPUT);
   pinMode(flash_pin, OUTPUT);
   pinMode(motor_disable_pin, OUTPUT);
+  pinMode(LED_BUILTIN, OUTPUT);
 
   digitalWrite(motor_disable_pin, LOW);
 
@@ -179,6 +180,7 @@ void loop()
       flash = 0;
       compteur = 0;
       digitalWrite(flash_pin, HIGH);
+      digitalWrite(LED_BUILTIN, HIGH);
       //Serial.println("-------------flash on!-----------------");
     }
 
@@ -187,6 +189,7 @@ void loop()
     if (flash >= flash_duration)
     {
       digitalWrite(flash_pin, LOW);
+      digitalWrite(LED_BUILTIN, LOW);
       flash = 0;
       //Serial.println("flash off!");
 
@@ -221,8 +224,10 @@ void loop()
     compteur = 0;
 
     digitalWrite(flash_pin, HIGH);
+    digitalWrite(LED_BUILTIN, HIGH);
     delayMicroseconds(flash_duration * 20);
     digitalWrite(flash_pin, LOW);
+    digitalWrite(LED_BUILTIN, LOW);
     delayMicroseconds(1000);
   }
 }
