@@ -27,12 +27,19 @@
     (via "Via[0-1]_800:400_um")
     (rule
       (width 500)
-      (clearance 200.1)
-      (clearance 200.1 (type default_smd))
-      (clearance 50 (type smd_smd))
+      (clearance 400.1)
+      (clearance 400.1 (type default_smd))
+      (clearance 100 (type smd_smd))
     )
   )
   (placement
+    (component "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
+      (place J5 160020 -64770 front 180 (PN Screw_Terminal_01x02))
+      (place J4 149860 -64770 front 180 (PN Screw_Terminal_01x02))
+      (place J3 129540 -64770 front 180 (PN Screw_Terminal_01x02))
+      (place J2 119380 -64770 front 180 (PN Screw_Terminal_01x02))
+      (place J1 105410 -64770 front 180 (PN Screw_Terminal_01x02))
+    )
     (component "Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical"
       (place J6 74930 -63500 front 270 (PN Conn_02x05_Odd_Even))
     )
@@ -49,9 +56,6 @@
     (component Capacitor_THT:CP_Radial_D6.3mm_P2.50mm
       (place C1 128270 -92710 front 180 (PN 100uF))
     )
-    (component "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
-      (place J1 105410 -64770 front 180 (PN Screw_Terminal_01x02))
-    )
     (component "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
       (place D1 83820 -67310 front 0 (PN 1N4004))
     )
@@ -61,12 +65,6 @@
     (component MountingHole:MountingHole_3.2mm_M3::1
       (place H4 135890 -96520 front 0 (PN MountingHole))
       (place H3 135890 -64770 front 0 (PN MountingHole))
-    )
-    (component "TerminalBlock:TerminalBlock_bornier-2_P5.08mm::1"
-      (place J5 160020 -64770 front 180 (PN Screw_Terminal_01x02))
-      (place J4 149860 -64770 front 180 (PN Screw_Terminal_01x02))
-      (place J3 129540 -64770 front 180 (PN Screw_Terminal_01x02))
-      (place J2 119380 -64770 front 180 (PN Screw_Terminal_01x02))
     )
     (component "Package_TO_SOT_THT:TO-220-3_Vertical::1"
       (place Q2 154940 -74930 front 0 (PN IRLB8721PBF))
@@ -85,6 +83,24 @@
     )
   )
   (library
+    (image "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
+      (outline (path signal 100  -2410 -2550  7490 -2550))
+      (outline (path signal 100  -2460 3750  -2460 -3750))
+      (outline (path signal 100  -2460 -3750  7540 -3750))
+      (outline (path signal 100  7540 -3750  7540 3750))
+      (outline (path signal 100  7540 3750  -2460 3750))
+      (outline (path signal 120  7620 -2540  -2540 -2540))
+      (outline (path signal 120  7620 -3810  7620 3810))
+      (outline (path signal 120  7620 3810  -2540 3810))
+      (outline (path signal 120  -2540 3810  -2540 -3810))
+      (outline (path signal 120  -2540 -3810  7620 -3810))
+      (outline (path signal 50  -2710 4000  7790 4000))
+      (outline (path signal 50  -2710 4000  -2710 -4000))
+      (outline (path signal 50  7790 -4000  7790 4000))
+      (outline (path signal 50  7790 -4000  -2710 -4000))
+      (pin Round[A]Pad_3000_um 2 5080 0)
+      (pin Rect[A]Pad_3000x3000_um 1 0 0)
+    )
     (image "Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical"
       (outline (path signal 100  -3180 4100  -2180 5100))
       (outline (path signal 100  -2180 5100  5720 5100))
@@ -329,24 +345,6 @@
       (pin Round[A]Pad_1600_um 2 2500 0)
       (pin Rect[A]Pad_1600x1600_um 1 0 0)
     )
-    (image "TerminalBlock:TerminalBlock_bornier-2_P5.08mm"
-      (outline (path signal 50  7790 -4000  -2710 -4000))
-      (outline (path signal 50  7790 -4000  7790 4000))
-      (outline (path signal 50  -2710 4000  -2710 -4000))
-      (outline (path signal 50  -2710 4000  7790 4000))
-      (outline (path signal 120  -2540 -3810  7620 -3810))
-      (outline (path signal 120  -2540 3810  -2540 -3810))
-      (outline (path signal 120  7620 3810  -2540 3810))
-      (outline (path signal 120  7620 -3810  7620 3810))
-      (outline (path signal 120  7620 -2540  -2540 -2540))
-      (outline (path signal 100  7540 3750  -2460 3750))
-      (outline (path signal 100  7540 -3750  7540 3750))
-      (outline (path signal 100  -2460 -3750  7540 -3750))
-      (outline (path signal 100  -2460 3750  -2460 -3750))
-      (outline (path signal 100  -2410 -2550  7490 -2550))
-      (pin Round[A]Pad_3000_um 2 5080 0)
-      (pin Rect[A]Pad_3000x3000_um 1 0 0)
-    )
     (image "Diode_THT:D_DO-41_SOD81_P10.16mm_Horizontal"
       (outline (path signal 50  11510 1600  -1350 1600))
       (outline (path signal 50  11510 -1600  11510 1600))
@@ -414,24 +412,6 @@
             3369.34 741.648  3450 0))
       (keepout "" (circle F.Cu 3200))
       (keepout "" (circle B.Cu 3200))
-    )
-    (image "TerminalBlock:TerminalBlock_bornier-2_P5.08mm::1"
-      (outline (path signal 100  -2410 -2550  7490 -2550))
-      (outline (path signal 100  -2460 3750  -2460 -3750))
-      (outline (path signal 100  -2460 -3750  7540 -3750))
-      (outline (path signal 100  7540 -3750  7540 3750))
-      (outline (path signal 100  7540 3750  -2460 3750))
-      (outline (path signal 120  7620 -2540  -2540 -2540))
-      (outline (path signal 120  7620 -3810  7620 3810))
-      (outline (path signal 120  7620 3810  -2540 3810))
-      (outline (path signal 120  -2540 3810  -2540 -3810))
-      (outline (path signal 120  -2540 -3810  7620 -3810))
-      (outline (path signal 50  -2710 4000  7790 4000))
-      (outline (path signal 50  -2710 4000  -2710 -4000))
-      (outline (path signal 50  7790 -4000  7790 4000))
-      (outline (path signal 50  7790 -4000  -2710 -4000))
-      (pin Round[A]Pad_3000_um 2 5080 0)
-      (pin Rect[A]Pad_3000x3000_um 1 0 0)
     )
     (image "Package_TO_SOT_THT:TO-220-3_Vertical::1"
       (outline (path signal 100  -2460 3150  -2460 -1250))
@@ -672,10 +652,10 @@
   )
   (network
     (net +12V
-      (pins C1-1 D1-1 U1-1 J5-2 J4-2 Driver1-8)
+      (pins J5-2 J4-2 C1-1 D1-1 U1-1 Driver1-8)
     )
     (net GND
-      (pins J6-2 R4-2 R2-2 C1-2 J1-1 U1-2 Q2-3 Q1-3 RV1-3 RV3-3 RV2-3 Nano1-29 Nano1-4
+      (pins J1-1 J6-2 R4-2 R2-2 C1-2 U1-2 Q2-3 Q1-3 RV1-3 RV3-3 RV2-3 Nano1-29 Nano1-4
         Driver1-7 Driver1-1)
     )
     (net "Net-(Driver1-Pad6)"
@@ -756,31 +736,26 @@
     (net /D2
       (pins J6-3 Nano1-5)
     )
-    (class kicad_default "" /A3 /A4 /A5 /A6 /D2 /D3 /D7 /D8 /DIR /ENABLE /LED1
-      /LED2 /MS1 /MS2 /MS3 /STEP /dir /enable /led1 /led2 /step "Net-(D1-Pad2)"
-      "Net-(Driver1-Pad13)" "Net-(J6-Pad10)" "Net-(J6-Pad2)" "Net-(J6-Pad3)"
-      "Net-(J6-Pad4)" "Net-(J6-Pad5)" "Net-(J6-Pad6)" "Net-(J6-Pad7)" "Net-(J6-Pad8)"
-      "Net-(J6-Pad9)" "Net-(Nano1-Pad1)" "Net-(Nano1-Pad17)" "Net-(Nano1-Pad18)"
-      "Net-(Nano1-Pad19)" "Net-(Nano1-Pad2)" "Net-(Nano1-Pad20)" "Net-(Nano1-Pad21)"
-      "Net-(Nano1-Pad22)" "Net-(Nano1-Pad23)" "Net-(Nano1-Pad24)" "Net-(Nano1-Pad25)"
-      "Net-(Nano1-Pad26)" "Net-(Nano1-Pad28)" "Net-(Nano1-Pad3)" "Net-(Nano1-Pad30)"
+    (class kicad_default "" /D2 /D3 /D7 /D8 /DIR /ENABLE /LED1 /LED2 /MS1
+      /MS2 /MS3 /STEP "Net-(Driver1-Pad13)" "Net-(Nano1-Pad19)" "Net-(Nano1-Pad20)"
+      "Net-(Nano1-Pad21)"
       (circuit
         (use_via Via[0-1]_800:400_um)
       )
       (rule
         (width 500)
-        (clearance 200.1)
+        (clearance 400.1)
       )
     )
-    (class Power +12V +5V GND "Net-(Driver1-Pad3)" "Net-(Driver1-Pad4)" "Net-(Driver1-Pad5)"
-      "Net-(Driver1-Pad6)" "Net-(J4-Pad1)" "Net-(J5-Pad1)" "Net-(J6-Pad1)"
+    (class Power +12V +5V GND "Net-(D1-Pad2)" "Net-(Driver1-Pad3)" "Net-(Driver1-Pad4)"
+      "Net-(Driver1-Pad5)" "Net-(Driver1-Pad6)" "Net-(J4-Pad1)" "Net-(J5-Pad1)"
       "Net-(Q1-Pad1)" "Net-(Q2-Pad1)"
       (circuit
         (use_via Via[0-1]_800:400_um)
       )
       (rule
         (width 700)
-        (clearance 200.1)
+        (clearance 400.1)
       )
     )
   )
