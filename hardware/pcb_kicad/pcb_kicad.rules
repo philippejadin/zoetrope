@@ -11,7 +11,7 @@
     (via_costs 50)
     (plane_via_costs 5)
     (start_ripup_costs 100)
-    (start_pass_no 696)
+    (start_pass_no 770)
     (layer_rule F.Cu
       (active on)
       (preferred_direction horizontal)
@@ -69,9 +69,9 @@
     )
   )
   (class "kicad_default"
-    "Net-(Driver1-Pad13)" "Net-(Nano1-Pad21)" "Net-(Nano1-Pad20)" "Net-(Nano1-Pad19)" "Net-(J6-Pad4)" "Net-(J6-Pad3)" "Net-(J6-Pad2)" "Net-(J6-Pad6)"
-    "Net-(J6-Pad5)" "Net-(D1-Pad2)" /MS3 /MS2 /MS1 /dir /step /enable
-    /led2 /led1
+    "Net-(Driver1-Pad13)" "Net-(Nano1-Pad21)" "Net-(Nano1-Pad20)" "Net-(Nano1-Pad19)" "Net-(D1-Pad2)" /MS3 /MS2 /MS1
+    /DIR /STEP /ENABLE /LED2 /LED1 /D8 /D7 /D3
+    /D2
     (clearance_class "kicad_default")
     (via_rule kicad_default)
     (rule
@@ -83,7 +83,7 @@
   )
   (class Power
     +12V GND "Net-(Driver1-Pad6)" "Net-(Driver1-Pad5)" "Net-(Driver1-Pad4)" "Net-(Driver1-Pad3)" +5V "Net-(Q1-Pad1)"
-    "Net-(Q2-Pad1)" "Net-(J4-Pad1)" "Net-(J5-Pad1)" "Net-(J6-Pad1)"
+    "Net-(Q2-Pad1)" "Net-(J4-Pad1)" "Net-(J5-Pad1)"
     (clearance_class Power)
     (via_rule Power)
     (rule

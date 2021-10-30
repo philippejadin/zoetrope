@@ -621,115 +621,143 @@ Wire Wire Line
 Wire Wire Line
 	2750 4000 2800 4000
 Wire Wire Line
-	6300 1650 6300 2900
-$Comp
-L Connector_Generic:Conn_02x05_Counter_Clockwise J6
-U 1 1 617E14E8
-P 1550 3500
-F 0 "J6" H 1600 3917 50  0000 C CNN
-F 1 "Conn_02x05_Counter_Clockwise" H 1600 3826 50  0000 C CNN
-F 2 "Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical" H 1550 3500 50  0001 C CNN
-F 3 "~" H 1550 3500 50  0001 C CNN
-	1    1550 3500
-	1    0    0    -1  
-$EndComp
-Wire Wire Line
 	1900 1050 1900 1000
 Text Label 2700 3600 2    50   ~ 0
-led1
+LED1
 Text Label 2700 3700 2    50   ~ 0
-led2
+LED2
 Wire Wire Line
 	2700 3600 2800 3600
 Wire Wire Line
 	2700 3700 2800 3700
 Text Label 4050 4550 2    50   ~ 0
-led1
+LED1
 Text Label 4450 5050 2    50   ~ 0
-led2
+LED2
 Wire Wire Line
 	4050 4550 4200 4550
 Wire Wire Line
 	4450 5050 5050 5050
 Text Label 6250 2900 2    50   ~ 0
-enable
+ENABLE
 Text Label 6750 3000 2    50   ~ 0
-step
+STEP
 Text Label 6750 3100 2    50   ~ 0
-dir
+DIR
 Wire Wire Line
 	6750 3000 6900 3000
 Wire Wire Line
 	6750 3100 6900 3100
-Wire Wire Line
-	6300 2900 6900 2900
-Wire Wire Line
-	6250 2900 6300 2900
-Connection ~ 6300 2900
-Wire Wire Line
-	1200 2900 1200 3300
-Wire Wire Line
-	1200 3300 1350 3300
-Wire Wire Line
-	1200 2900 2800 2900
-Wire Wire Line
-	2800 3000 1150 3000
-Wire Wire Line
-	1150 3000 1150 3400
-Wire Wire Line
-	1150 3400 1350 3400
 Text Label 2750 3100 2    50   ~ 0
-enable
+ENABLE
 Text Label 2750 3200 2    50   ~ 0
-step
+STEP
 Text Label 2750 3300 2    50   ~ 0
-dir
+DIR
 Wire Wire Line
 	2750 3100 2800 3100
 Wire Wire Line
 	2750 3200 2800 3200
 Wire Wire Line
 	2750 3300 2800 3300
+Text Label 2700 3000 2    50   ~ 0
+D3
+Text Label 2700 2900 2    50   ~ 0
+D2
 Wire Wire Line
-	2800 3400 2250 3400
+	2700 2900 2800 2900
 Wire Wire Line
-	2250 3400 2250 3950
+	2700 3000 2800 3000
+Text Label 2700 3400 2    50   ~ 0
+D7
+Text Label 2700 3500 2    50   ~ 0
+D8
 Wire Wire Line
-	2250 3950 1200 3950
+	2700 3400 2800 3400
 Wire Wire Line
-	1200 3950 1200 3500
+	2700 3500 2800 3500
 Wire Wire Line
-	1200 3500 1350 3500
+	6250 2900 6300 2900
 Wire Wire Line
-	2800 3500 2300 3500
+	6300 1650 6300 2900
+Connection ~ 6300 2900
 Wire Wire Line
-	2300 3500 2300 4000
+	6300 2900 6900 2900
+Text Label 3900 3600 0    50   ~ 0
+A3
+Text Label 3900 3700 0    50   ~ 0
+A4
+Text Label 3900 3800 0    50   ~ 0
+A5
+Text Label 3900 3900 0    50   ~ 0
+A6
+$Comp
+L Connector_Generic:Conn_02x05_Odd_Even J6
+U 1 1 61824717
+P 1600 5200
+F 0 "J6" H 1650 5617 50  0000 C CNN
+F 1 "Conn_02x05_Odd_Even" H 1650 5526 50  0000 C CNN
+F 2 "Connector_IDC:IDC-Header_2x05_P2.54mm_Vertical" H 1600 5200 50  0001 C CNN
+F 3 "~" H 1600 5200 50  0001 C CNN
+	1    1600 5200
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+5V #PWR0104
+U 1 1 6182C21A
+P 1050 5000
+F 0 "#PWR0104" H 1050 4850 50  0001 C CNN
+F 1 "+5V" H 1065 5173 50  0000 C CNN
+F 2 "" H 1050 5000 50  0001 C CNN
+F 3 "" H 1050 5000 50  0001 C CNN
+	1    1050 5000
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:GND #PWR0108
+U 1 1 6182C9C7
+P 2500 5000
+F 0 "#PWR0108" H 2500 4750 50  0001 C CNN
+F 1 "GND" H 2505 4827 50  0000 C CNN
+F 2 "" H 2500 5000 50  0001 C CNN
+F 3 "" H 2500 5000 50  0001 C CNN
+	1    2500 5000
+	1    0    0    -1  
+$EndComp
 Wire Wire Line
-	2300 4000 1150 4000
+	2500 5000 1900 5000
 Wire Wire Line
-	1150 4000 1150 3600
+	1050 5000 1400 5000
+Text Label 1250 5100 2    50   ~ 0
+D2
+Text Label 1250 5200 2    50   ~ 0
+D3
+Text Label 1250 5300 2    50   ~ 0
+D7
+Text Label 1250 5400 2    50   ~ 0
+D8
+Text Label 2050 5100 0    50   ~ 0
+A3
+Text Label 2050 5200 0    50   ~ 0
+A4
+Text Label 2050 5300 0    50   ~ 0
+A5
+Text Label 2050 5400 0    50   ~ 0
+A6
 Wire Wire Line
-	1150 3600 1350 3600
+	1250 5100 1400 5100
 Wire Wire Line
-	3800 3600 3950 3600
+	1250 5200 1400 5200
 Wire Wire Line
-	3950 3600 3950 4350
+	1250 5300 1400 5300
 Wire Wire Line
-	3950 4350 3700 4350
+	1250 5400 1400 5400
 Wire Wire Line
-	3700 4350 3700 4650
+	1900 5100 2050 5100
 Wire Wire Line
-	3700 4650 1350 4650
+	1900 5200 2050 5200
 Wire Wire Line
-	1350 4650 1350 3700
+	1900 5300 2050 5300
 Wire Wire Line
-	3800 3700 3850 3700
-Wire Wire Line
-	3850 3700 3850 4800
-Wire Wire Line
-	3850 4800 1950 4800
-Wire Wire Line
-	1950 4800 1950 3700
-Wire Wire Line
-	1950 3700 1850 3700
+	1900 5400 2050 5400
 $EndSCHEMATC
